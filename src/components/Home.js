@@ -17,7 +17,7 @@ const Home = (props) => {
   }, []);
 
   const getGifs = async () => {
-    const response = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${APIKey}&limit=25`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${APIKey}&limit=25`);
     const data = await response.json();
     setGifs(data.data);
     console.log(data.data);
