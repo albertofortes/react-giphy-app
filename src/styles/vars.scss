@@ -1,0 +1,23 @@
+//
+// typography
+$typefacePrimary:      'Inconsolata', sans-serif;
+$typefaceSecondary:    'Tomorrow', sans-serif;
+$dpFontWeightLight:         300;
+$dpFontWeightRegular:       400;
+$dpFontWeightMedium:        600;
+$dpFontWeightBold:          700;
+$dpFontWeightExtraBold:     800;
+$dpFontWeightBlack:         900;
+
+//
+// responsive mobile first (based in Bootstrap 4 just due to very common)
+$breakpoint-sm:         576px;
+$breakpoint-md:         768px;
+$breakpoint-lg:         992px;
+$breakpoint-xl:         1200px;
+
+//
+$headerHeight:  5rem;
+$footerHeight:  5rem;
+
+$blueReact: #61dafb;

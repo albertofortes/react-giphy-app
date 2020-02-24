@@ -1,3 +1,22 @@
+# React JS + Giphy API
+
+For learning purposes I'm using [Giphy API](https://developers.giphy.com/)
+
+## What I've used and learning with this weekend project?
+
+Previously I was working with ReactJS mostly based in class components, and working with APIs using Redux and axios.
+I wanted to so a simple React + API app using Functional components and avoid using Redux and Axios.
+
+I've learned to:
+
+* Use functional component and React Hooks.
+* lift up states and pass down.
+* Use pure fetch API calls.
+* Search in the API passing data and states up and down.
+* Minimize use of code and non necessary third-party plugins (for example, lightbox made from scratch).
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
