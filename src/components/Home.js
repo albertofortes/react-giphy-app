@@ -11,16 +11,26 @@ import { faExternalLinkAlt, faDownload } from '@fortawesome/free-solid-svg-icons
 
 const Home = (props) => {
   const [gifs, setGifs] = useState([]);
+  const [limit, setLimit] = useState(50);
+  //const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     getGifs();
-  }, []);
+  }, [limit]);
 
   const getGifs = async () => {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${APIKey}&limit=25`);
+    console.log('pasa get: ', limit);
+    //const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${APIKey}&limit=25&offset=${offset}`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${APIKey}&limit=${limit}`);
     const data = await response.json();
     setGifs(data.data);
-    console.log(data.data);
+    //console.log(data.data);
+  };
+
+  const loadMore = () => {
+    console.log('pasa loadMore: ', limit);
+    //setOffset(offset + 25);
+    getGifs();
   };
 
   const loadPopUp = (e) => {
@@ -40,6 +50,7 @@ const Home = (props) => {
   };
 
   const getDataQuery = (data) => {
+    setLimit(25);
     // lifted Up states as props!
     setGifs(data.data);
   };
@@ -53,8 +64,8 @@ const Home = (props) => {
     <React.Fragment>
       <div>
         <div className="content__gifs">
-          {gifs.map(gif => (
-            <div className="gifs__gif" key={gif.id} onClick={loadPopUp}>
+          {gifs && gifs.map((gif, i) => (
+            <div className="gifs__gif" data-key={i} key={gif.id} onClick={loadPopUp}>
               <LazyLoadImage src={`https://i.giphy.com/${gif.id}.${gif.type}`} alt={gif.title} className="gif__popup__image" />
               {/*<LazyLoadImage src={`https://i.giphy.com/media/${gif.id}/480w_s.jpg`} alt={gif.title} className="gif__popup__image" />*/}
               <div className='gif__popup__actions'>
@@ -66,6 +77,8 @@ const Home = (props) => {
         </div>
         <div id='gifPopUp' className='gif__popup'></div>
         <div id='gifPopUpOverlay' className='gif__popup__overlay'></div>
+
+        {false && limit < 50 && <button className="load_more" onClick={loadMore}>Not enough, I want more...</button>}
       
         <SearchBox dataQuery={getDataQuery} searchQuery={getSearchQuery} />
       </div>

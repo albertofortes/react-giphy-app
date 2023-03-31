@@ -7,7 +7,7 @@ const SearchBox = (props) => {
     e.preventDefault();
     const s = document.getElementById('searchboxInput').value;
     if(s === '') return;
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${s}&api_key=${APIKey}&limit=25`);
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${s}&api_key=${APIKey}&limit=${props.limit}`);
     const data = await response.json();
 
     // lift Up states as props!
