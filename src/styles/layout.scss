@@ -31,6 +31,7 @@ body {
   background-color: #191919;
   color: white;
   min-height: 100vh;
+  padding-bottom: $footerHeight + 1rem;
 }
 
 .header {
@@ -153,6 +154,23 @@ body {
   }
 } // content__gifs
 
+
+.load_more {
+  display: block;
+  width: 100%;
+  max-width: 90%;
+  color: #000;
+  background-color: #ff0;
+  border: none;
+  border-radius: .5rem;
+  padding: 2rem 1rem;
+  margin: 5rem auto;
+
+  @media only screen and (min-width: $breakpoint-md) {
+    max-width: 50rem;
+  }
+}
+
 // lighbox vanilla made by me
 .gif__popup {
   position: relative;
@@ -270,7 +288,7 @@ body {
   text-align: center;
   font: normal 400 1.5rem/1.5 $typefacePrimary; 
   box-sizing: border-box;
-  padding: 2rem 2rem $footerHeight + 2rem;
+  padding: 1rem 2rem;
   background-color: rebeccapurple;
   
 
@@ -279,9 +297,8 @@ body {
     align-items: center;
     justify-content: center;
     height: $footerHeight;
-    padding: 0 2rem;
-    position: fixed;
-    bottom: 0;
+    //position: fixed;
+    //bottom: 0;
     width: 100%;
   }
 
